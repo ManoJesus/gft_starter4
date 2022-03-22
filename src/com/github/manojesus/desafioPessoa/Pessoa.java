@@ -2,12 +2,12 @@ package com.github.manojesus.desafioPessoa;
 
 public class Pessoa {
     private String nome;
-    private String endereco;
+    private Endereco endereco;
     private String telefone;
 
     public Pessoa() {}
 
-    public Pessoa(String nome, String endereco, String telefone) {
+    public Pessoa(String nome, Endereco endereco, String telefone) {
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -21,11 +21,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 

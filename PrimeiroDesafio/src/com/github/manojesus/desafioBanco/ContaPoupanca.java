@@ -4,7 +4,7 @@ import com.github.manojesus.desafioBanco.Pessoa;
 
 import java.text.DecimalFormat;
 
-public class ContaPoupanca extends Conta{
+public class ContaPoupanca extends Conta implements Imposto{
     //=== Constantes ===
     private static  final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("R$ ###,###.00");
 
@@ -17,8 +17,13 @@ public class ContaPoupanca extends Conta{
     //===Métodos sobrescritos ===
 
     @Override
-    public String rendimento() {
-        return DECIMAL_FORMAT.format(getSaldo() * 0.05);
+    public double rendimento() {
+        return getSaldo() * 0.05;
+    }
+
+    @Override
+    public String calcularImposto() {
+        return DECIMAL_FORMAT.format(rendimento() * 0.10);
     }
 
     @Override
@@ -27,6 +32,7 @@ public class ContaPoupanca extends Conta{
                 "Número da Conta: "+ getNumeroConta() + '\n'+
                 "Titular: "+getTitular() +'\n'+
                 "Saldo: "+  DECIMAL_FORMAT.format(getSaldo()) +'\n'+
-                "Rendimento: "+rendimento();
+                "Rendimento: "+DECIMAL_FORMAT.format(rendimento())+ '\n'+
+                "Impostos: "+ calcularImposto();
     }
 }

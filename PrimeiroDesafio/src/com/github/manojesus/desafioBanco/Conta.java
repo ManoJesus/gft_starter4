@@ -19,7 +19,7 @@ public abstract class Conta {
         this.saldo = saldo;
     }
     //===Metodos abstrato ===
-    public abstract String rendimento();
+    public abstract double rendimento();
 
     // === Métodos acessores ===
     public String getNumeroConta() {

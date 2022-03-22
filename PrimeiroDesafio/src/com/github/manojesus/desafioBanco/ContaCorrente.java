@@ -17,13 +17,13 @@ public class ContaCorrente extends Conta implements Imposto{
     //===Métodos sobrescritos ===
 
     @Override
-    public String rendimento() {
-        return DECIMAL_FORMAT.format(getSaldo() * 0.03);
+    public double rendimento() {
+        return getSaldo() * 0.03;
     }
 
     @Override
     public String calcularImposto() {
-        return null;
+        return DECIMAL_FORMAT.format(rendimento() * 0.25) ;
     }
 
     @Override
@@ -33,6 +33,7 @@ public class ContaCorrente extends Conta implements Imposto{
                 "Número da Conta: "+ getNumeroConta() + '\n'+
                 "Titular: "+ getTitular()+'\n'+
                 "Saldo: "+ DECIMAL_FORMAT.format(getSaldo()) +'\n'+
-                "Rendimento: "+rendimento();
+                "Rendimento: "+DECIMAL_FORMAT.format(rendimento())+ '\n'+
+                "Impostos: "+ calcularImposto();
     }
 }
